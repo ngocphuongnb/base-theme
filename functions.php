@@ -31,7 +31,7 @@ function vmzwp_setup() {
     /**
      * Enable support for the Aside Post Format
      */
-    add_theme_support( 'post-formats', array( 'aside' ) );
+    //add_theme_support( 'post-formats', array( 'aside' ) );
     /**
      * Register menu, use 1 location, the rest using widgets.
      */
