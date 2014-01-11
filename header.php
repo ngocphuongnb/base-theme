@@ -30,16 +30,22 @@
 </head>
 <body <?php body_class(); ?>>
 <header id="masthead" role="banner">
+    <?php if ( is_active_sidebar( 'top_nav_left' ) || is_active_sidebar( 'top_nav_right' ) ) : ?>
 	<div id="site-top-nav">
 		<div class="wrap">
+            <?php if ( is_active_sidebar( 'top_nav_left' ) ) : ?>
 			<div class="left top-nav">
 				<?php dynamic_sidebar( 'top_nav_left' ); ?>
 			</div><!-- .left.top-nav -->
+            <?php endif; ?>
+            <?php if ( is_active_sidebar( 'top_nav_right' ) ) : ?>
 			<div class="right top-nav">
 				<?php dynamic_sidebar( 'top_nav_right' ); ?>
 			</div><!-- .right.top-nav -->
+            <?php endif; ?>
 		</div><!-- .wrap -->
 	</div><!-- #top-nav -->
+    <?php endif; ?>
 	<div id="site-header">
 		<div class="logo left">
 			<h1 class="site-title">
@@ -53,19 +59,16 @@
 			</div><!-- .site-slogan -->
 			<?php endif; ?>
 		</div><!-- .logo.left -->
+        <?php if ( is_active_sidebar( 'header_sidebar' ) ) : ?>
 		<div class="right header-sidebar">
 			<?php dynamic_sidebar( 'header_sidebar' ); ?>
 		</div><!-- .right.header-sidebar -->
+        <?php endif; ?>
 	</div><!-- #masthead -->
+    <?php if ( is_active_sidebar( 'main_menu' ) ) : ?>
 	<nav id="site-nav" class="main-nav">
-		<?php //$walker = new Menu_With_Description; ?>
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'menu_class' => 'nav-menu',
-				//'walker' => $walker 
-			) );
-		?>
+		<?php dynamic_sidebar('main_menu'); ?>  
 	</nav><!-- #site-nav.main-nav -->
+    <?php endif; ?>
 </header><!-- #site-header -->
 <main>
